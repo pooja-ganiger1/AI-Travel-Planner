@@ -194,7 +194,7 @@ function HeroGeometric({
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-3 justify-center items-center flex-wrap"
             >
               {children}
             </motion.div>

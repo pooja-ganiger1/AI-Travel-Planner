@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 import TravelForm, { TravelFormData } from "@/components/TravelForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { askAI } from "@/lib/bytez";
@@ -43,7 +44,8 @@ Format the response in a clear, organized way.`;
 
   return (
     <div className="min-h-screen bg-[#030303]">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <Navbar />
+      <div className="max-w-7xl mx-auto px-6 py-16 pt-24">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.03] border border-white/[0.08] text-primary rounded-full text-sm font-medium mb-4">

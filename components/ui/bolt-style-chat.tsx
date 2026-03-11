@@ -27,12 +27,10 @@ function FigmaIcon({ className }: { className?: string }) {
 
 // MODEL SELECTOR
 const models: Model[] = [
-  { id: 'gemini', name: 'Gemini Pro', description: 'Google AI - Best for travel', icon: <Sparkles className="size-4 text-primary" />, badge: 'Default' },
-  { id: 'gpt4o', name: 'GPT-4o', description: 'Most advanced OpenAI', icon: <Sparkles className="size-4 text-green-400" />, badge: 'Pro' },
-  { id: 'gpt', name: 'GPT OSS', description: 'Fast & reliable', icon: <Sparkles className="size-4 text-blue-400" />, badge: 'Fast' }
+  { id: 'qwen', name: 'Qwen3-4B', description: 'Lightweight & fast', icon: <Sparkles className="size-4 text-purple-400" />, badge: 'Default' }
 ]
 
-function ModelSelector({ selectedModel = 'gemini', onModelChange }: { selectedModel?: string; onModelChange?: (model: Model) => void }) {
+function ModelSelector({ selectedModel = 'qwen', onModelChange }: { selectedModel?: string; onModelChange?: (model: Model) => void }) {
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState(models.find(m => m.id === selectedModel) || models[0])
 
@@ -253,7 +251,7 @@ export function BoltStyleChat({
       <RayBackground />
 
       {!hasMessages && (
-        <div className="absolute top-[70px]">
+        <div className="absolute top-[120px]">
           {/* Announcement badge */}
           <AnnouncementBadge text={announcementText} href={announcementHref} />
         </div>

@@ -1,6 +1,6 @@
 # AI Travel Planner 🌍✈️
 
-A modern AI-powered Travel Planner Web Application built with Next.js, ShadCN UI, and Bytez AI.
+A modern AI-powered Travel Planner Web Application built with Next.js and ShadCN UI.
 
 ## Features
 
@@ -17,8 +17,8 @@ A modern AI-powered Travel Planner Web Application built with Next.js, ShadCN UI
 - **TypeScript**
 - **Tailwind CSS**
 - **ShadCN UI Components**
-- **Bytez AI SDK** (Qwen/Qwen3-0.6B model)
 - **Lucide Icons**
+- **Framer Motion** (Animations)
 
 ## Getting Started
 
@@ -40,7 +40,7 @@ npm install
 ```
 
 3. Set up environment variables:
-The `.env.local` file is already created with the Bytez API key.
+Create a `.env.local` file with your API keys if needed.
 
 4. Run the development server:
 ```bash
@@ -66,7 +66,7 @@ ai-travel-planner/
 │   ├── DestinationCard.tsx   # Destination display card
 │   └── TravelForm.tsx        # Travel planning form
 ├── lib/
-│   └── bytez.ts              # Bytez AI integration
+│   └── gemini.ts             # AI integration
 └── .env.local                # Environment variables
 ```
 
@@ -124,7 +124,7 @@ ai-travel-planner/
 
 ## AI Integration
 
-The app uses Bytez AI with the Qwen/Qwen3-0.6B model for:
+The app uses AI for:
 - Generating travel itineraries
 - Answering travel-related questions
 - Providing destination recommendations
@@ -139,7 +139,7 @@ npm start
 ## Customization
 
 - Modify components in `/components` directory
-- Update AI prompts in `/lib/bytez.ts`
+- Update AI prompts in `/lib/gemini.ts`
 - Customize styles using Tailwind CSS classes
 - Add more destinations in the home page
 

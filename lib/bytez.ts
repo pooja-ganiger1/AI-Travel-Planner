@@ -1,20 +1,13 @@
 import Bytez from "bytez.js";
-import { askGemini } from "./gemini";
 
 const key = process.env.NEXT_PUBLIC_BYTEZ_API_KEY || "";
 const sdk = new Bytez(key);
 
-export const gptModel = sdk.model("openai/gpt-oss-20b");
+export const qwenModel = sdk.model("Qwen/Qwen3-4B-Instruct-2507");
 
-export async function askAI(message: string, modelType: "gpt" | "gpt4o" | "gemini" = "gemini"): Promise<string> {
+export async function askAI(message: string, modelType: "qwen" = "qwen"): Promise<string> {
   try {
-    // Use Gemini API directly if selected
-    if (modelType === "gemini") {
-      return await askGemini(message);
-    }
-
-    // Use Bytez for other models
-    const selectedModel = gptModel;
+    const selectedModel = qwenModel;
     
     const { error, output } = await selectedModel.run([
       {
@@ -24,7 +17,6 @@ export async function askAI(message: string, modelType: "gpt" | "gpt4o" | "gemin
     ]);
 
     if (error) {
-      // Don't log to console, just throw the error to be handled by the UI
       throw new Error(error);
     }
 
@@ -47,7 +39,6 @@ export async function askAI(message: string, modelType: "gpt" | "gpt4o" | "gemin
 
     return responseText || "No response from AI.";
   } catch (err) {
-    // Don't log to console, just throw the error to be handled by the UI
     if (err instanceof Error) {
       throw err;
     }

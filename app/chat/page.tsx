@@ -13,7 +13,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSend = async (message: string, modelId: string = "gpt4o") => {
+  const handleSend = async (message: string, modelId: string = "qwen") => {
     // Prevent multiple simultaneous requests
     if (isLoading) {
       const warningMessage: Message = {
@@ -30,7 +30,7 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      const response = await askAI(message, modelId as "gpt" | "gpt4o" | "gemini");
+      const response = await askAI(message, modelId as "qwen");
       
       // Ensure response is a string
       let responseText = "";
