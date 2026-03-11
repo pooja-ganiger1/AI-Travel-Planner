@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { LucideIcon } from "lucide-react"
@@ -18,17 +19,22 @@ interface NavBarProps {
 }
 
 export function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name)
-  const [isMobile, setIsMobile] = useState(false)
+  const pathname = usePathname()
+  const [activeTab, setActiveTab] = useState("")
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    setMounted(true)
   }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+    // Set active tab based on current pathname
+    const currentItem = items.find(item => item.url === pathname)
+    if (currentItem) {
+      setActiveTab(currentItem.name)
+    }
+  }, [pathname, items, mounted])
 
   return (
     <div
@@ -45,7 +51,6 @@ export function NavBar({ items, className }: NavBarProps) {
             <Link
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
@@ -58,9 +63,11 @@ export function NavBar({ items, className }: NavBarProps) {
               </span>
               {isActive && (
                 <motion.div
-                  layoutId="lamp"
+                  key={`lamp-${item.name}`}
                   className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
-                  initial={false}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{
                     type: "spring",
                     stiffness: 300,
