@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Travel Planner 🌍✈️
+
+A modern AI-powered Travel Planner Web Application built with Next.js, ShadCN UI, and Bytez AI.
+
+## Features
+
+- 🏠 **Home Page**: Hero section with features and popular destinations
+- 🧳 **Travel Planner**: Generate personalized itineraries with AI
+- 🤖 **AI Chatbot**: Interactive travel assistant for instant recommendations
+- 📱 **Responsive Design**: Works seamlessly on mobile, tablet, and desktop
+- 🌙 **Dark Mode Support**: Built-in theme support
+
+## Tech Stack
+
+- **Next.js 14+** (App Router)
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **ShadCN UI Components**
+- **Bytez AI SDK** (Qwen/Qwen3-0.6B model)
+- **Lucide Icons**
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Navigate to the project directory:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd ai-travel-planner
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+The `.env.local` file is already created with the Bytez API key.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+ai-travel-planner/
+├── app/
+│   ├── page.tsx              # Home page
+│   ├── layout.tsx            # Root layout
+│   ├── chat/
+│   │   └── page.tsx          # Chatbot page
+│   └── planner/
+│       └── page.tsx          # Travel planner page
+├── components/
+│   ├── Navbar.tsx            # Navigation component
+│   ├── Chatbot.tsx           # AI chatbot component
+│   ├── DestinationCard.tsx   # Destination display card
+│   └── TravelForm.tsx        # Travel planning form
+├── lib/
+│   └── bytez.ts              # Bytez AI integration
+└── .env.local                # Environment variables
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+### Home Page
+- View features and popular destinations
+- Navigate to Planner or Chat Assistant
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Travel Planner
+1. Fill in the travel form:
+   - Destination
+   - Budget (Low/Medium/High)
+   - Number of days
+   - Travel type (Adventure/Relaxation/Family/Solo)
+2. Click "Generate Itinerary"
+3. View your AI-generated travel plan with:
+   - Daily activities
+   - Places to visit
+   - Food recommendations
+   - Budget breakdown
+   - Travel tips
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### AI Chat Assistant
+- Ask questions about travel destinations
+- Get instant recommendations
+- Use suggested questions or type your own
+- Examples:
+  - "Best places to visit in Goa?"
+  - "3 day trip plan for Mysore"
+  - "Cheap international trips from India"
+  - "Best hill stations in Karnataka"
+
+## Components
+
+### Navbar
+- Responsive navigation with mobile menu
+- Links to Home, Planner, and Chat pages
+
+### TravelForm
+- Input fields for trip details
+- Form validation
+- Loading states
+
+### Chatbot
+- Real-time AI responses
+- Message history
+- Suggested questions
+- Auto-scroll to latest message
+
+### DestinationCard
+- Display destination information
+- Hover effects
+- Responsive layout
+
+## AI Integration
+
+The app uses Bytez AI with the Qwen/Qwen3-0.6B model for:
+- Generating travel itineraries
+- Answering travel-related questions
+- Providing destination recommendations
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Customization
+
+- Modify components in `/components` directory
+- Update AI prompts in `/lib/bytez.ts`
+- Customize styles using Tailwind CSS classes
+- Add more destinations in the home page
+
+## License
+
+MIT
+
+## Support
+
+For issues or questions, please open an issue on the repository.
