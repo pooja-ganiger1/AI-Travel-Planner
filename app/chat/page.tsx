@@ -30,7 +30,7 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      const response = await askAI(message, modelId as "gpt4o" | "gpt");
+      const response = await askAI(message, modelId as "gpt" | "gpt4o" | "gemini");
       
       // Ensure response is a string
       let responseText = "";

@@ -6,7 +6,7 @@ const sdk = new Bytez(key);
 
 export const gptModel = sdk.model("openai/gpt-oss-20b");
 
-export async function askAI(message: string, modelType: "gpt" | "gemini" = "gemini"): Promise<string> {
+export async function askAI(message: string, modelType: "gpt" | "gpt4o" | "gemini" = "gemini"): Promise<string> {
   try {
     // Use Gemini API directly if selected
     if (modelType === "gemini") {
